@@ -1,19 +1,19 @@
-section .data
-    message db "I came,", 10, "I saw,", 10, "I conquered.", 10
-    length equ $ - message
-
 section .text
     global _start
 
 _start:
-    ; write(1, message, length)
-    mov rax, 1
-    mov rdi, 1
-    mov rsi, message
-    mov rdx, length
-    syscall
+    ; print the message
+    mov eax, 4          ; sys_write
+    mov ebx, 1          ; stdout
+    mov ecx, msg        ; message address
+    mov edx, len        ; message length
+    int 0x80            ; call kernel
 
-    ; exit(0)
-    mov rax, 60
-    mov rdi, 0
-    syscall
+    ; exit the program
+    mov eax, 1          ; sys_exit
+    mov ebx, 0          ; exit code 0
+    int 0x80            ; call kernel
+
+section .data
+msg db 'I came,', 0xA, 'I saw,', 0xA, 'I conquered.', 0xA
+len equ $ - msg
