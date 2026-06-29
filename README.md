@@ -16,21 +16,8 @@ I conquered.
 
 ## Flowchart
 
-Start
-↓
-Store the message in memory
-↓
-Load the write syscall number into EAX
-↓
-Load the output location, message address, and message length into registers
-↓
-Use `int 0x80` to print the message
-↓
-Load the exit syscall number into EAX
-↓
-Use `int 0x80` to exit the program
-↓
-End
+<img width="507" height="711" alt="Screenshot 2026-06-28 230135" src="https://github.com/user-attachments/assets/d7de3ceb-7312-4ada-898f-2d953f0fe543" />
+
 
 ## Challenges Encountered
 
